@@ -1,0 +1,47 @@
+﻿@model IEnumerable<API_Post_Eventos_Real.Models.Comentario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Upload)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contenido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Upload.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Post.id_de_uploads)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contenido)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_de_uploads">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_de_uploads">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_de_uploads">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
